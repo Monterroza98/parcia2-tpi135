@@ -14,6 +14,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.DiagnosticoParte
  */
 @Path("diagnostico")
 public class DiagnosticoParteResources {
-    @EJB
-    DiagnosticoParteFacadeLocal
+//    @EJB
+//    DiagnosticoParteFacadeLocal
 }
