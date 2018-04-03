@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,7 @@ public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcio
     public CalendarioExcepcionFacade() {
         super(CalendarioExcepcion.class);
     }
+
+ 
     
 }

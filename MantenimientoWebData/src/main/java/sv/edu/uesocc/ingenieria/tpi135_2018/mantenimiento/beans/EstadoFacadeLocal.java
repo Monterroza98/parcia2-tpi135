@@ -14,20 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Estado;
  * @author joker
  */
 @Local
-public interface EstadoFacadeLocal {
+public interface EstadoFacadeLocal extends AbstractInterface<Estado >{
 
-    void create(Estado estado);
-
-    void edit(Estado estado);
-
-    void remove(Estado estado);
-
-    Estado find(Object id);
-
-    List<Estado> findAll();
-
-    List<Estado> findRange(int[] range);
-
-    int count();
-    
+   
 }

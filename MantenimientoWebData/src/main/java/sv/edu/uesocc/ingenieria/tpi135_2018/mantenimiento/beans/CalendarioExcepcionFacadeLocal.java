@@ -14,20 +14,8 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.CalendarioEx
  * @author joker
  */
 @Local
-public interface CalendarioExcepcionFacadeLocal {
+public interface CalendarioExcepcionFacadeLocal extends AbstractInterface<CalendarioExcepcion>{
 
-    void create(CalendarioExcepcion calendarioExcepcion);
 
-    void edit(CalendarioExcepcion calendarioExcepcion);
-
-    void remove(CalendarioExcepcion calendarioExcepcion);
-
-    CalendarioExcepcion find(Object id);
-
-    List<CalendarioExcepcion> findAll();
-
-    List<CalendarioExcepcion> findRange(int[] range);
-
-    int count();
     
 }

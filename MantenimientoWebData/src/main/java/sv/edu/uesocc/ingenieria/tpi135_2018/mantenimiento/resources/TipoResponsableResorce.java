@@ -6,6 +6,7 @@
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.resources;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.media.Media;
 import javax.ejb.EJB;
@@ -26,10 +27,24 @@ public class TipoResponsableResorce implements  Serializable{
     @EJB
     private TipoResponsableFacadeLocal trfl;
     
-//    @GET
-//    @Path("all")
-//    @Produces({MediaType.APPLICATION_JSON})
-//    public List<TipoResponsable> findAll
+    @GET
+    @Path("all")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<TipoResponsable> findAll(){
+    List lista=null;
+        try {
+            lista = trfl.findAll();
+            if (lista!=null) {
+                return lista;
+            }
+        } catch (Exception e) {
+        }finally{
+            lista=new ArrayList();
+        }
+        
+        return lista;
+    
+    }
     
     
     

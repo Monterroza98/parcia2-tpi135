@@ -16,18 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.EstadoManten
 @Local
 public interface EstadoMantenimientoDetalleFacadeLocal {
 
-    void create(EstadoMantenimientoDetalle estadoMantenimientoDetalle);
-
-    void edit(EstadoMantenimientoDetalle estadoMantenimientoDetalle);
-
-    void remove(EstadoMantenimientoDetalle estadoMantenimientoDetalle);
-
-    EstadoMantenimientoDetalle find(Object id);
-
-    List<EstadoMantenimientoDetalle> findAll();
-
-    List<EstadoMantenimientoDetalle> findRange(int[] range);
-
-    int count();
+    
     
 }

@@ -14,20 +14,8 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.DiagnosticoP
  * @author joker
  */
 @Local
-public interface DiagnosticoParteFacadeLocal {
+public interface DiagnosticoParteFacadeLocal extends  AbstractInterface<DiagnosticoParte>{
 
-    void create(DiagnosticoParte diagnosticoParte);
 
-    void edit(DiagnosticoParte diagnosticoParte);
-
-    void remove(DiagnosticoParte diagnosticoParte);
-
-    DiagnosticoParte find(Object id);
-
-    List<DiagnosticoParte> findAll();
-
-    List<DiagnosticoParte> findRange(int[] range);
-
-    int count();
     
 }

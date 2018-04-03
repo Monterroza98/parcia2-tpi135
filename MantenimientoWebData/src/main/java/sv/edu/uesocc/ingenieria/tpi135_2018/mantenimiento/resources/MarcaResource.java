@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -66,6 +68,12 @@ public class MarcaResource implements Serializable{
         return lista;
     }    
     
-    
-    
+//    @DELETE
+//    @Produces({MediaType.APPLICATION_JSON})
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public Object Marca()
+//    {
+//    
+//    }    
+//    
 }

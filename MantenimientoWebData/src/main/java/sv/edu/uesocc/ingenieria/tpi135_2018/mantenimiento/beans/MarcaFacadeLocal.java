@@ -16,11 +16,11 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
 @Local
 public interface MarcaFacadeLocal {
 
-    void create(Marca marca);
+    boolean create(Marca marca);
 
-    void edit(Marca marca);
+    boolean edit(Marca marca);
 
-    void remove(Marca marca);
+    boolean remove(Marca marca);
 
     Marca find(Object id);
 
