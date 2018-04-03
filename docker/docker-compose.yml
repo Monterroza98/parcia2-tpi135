@@ -1,0 +1,25 @@
+version: '2.2'
+services:
+ dbpostgres:
+  image: postgres:9.6.3-alpine
+  volumes:
+   - /private/var/lib/postgresql:/var/lib/postgresql/data
+  ports:
+   - "5433:5433"
+  environment:
+   POSTGRES_USER: user
+   POSTGRES_PASSWORD: db1234
+   POSTGRES_DB: mantenimientodb
+ micro1:
+  image: payara/micro
+  ports:
+   - "1080:8080"
+  volumes:
+   - ./payara-micro/deployments:/opt/payara/deployments
+  entrypoint:
+   - java
+   - -jar
+   - /opt/payara/payara-micro.jar
+   - --deploymentDir
+   - /opt/payara/deployments 
+  build: ./
