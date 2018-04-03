@@ -6,6 +6,8 @@
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 /**
@@ -22,8 +24,21 @@ public abstract class AbstractFacade<T> {
 
     protected abstract EntityManager getEntityManager();
 
-    public void create(T entity) {
-        getEntityManager().persist(entity);
+    public T create(T entity) {
+        T salida = null;
+        try {
+            EntityManager em= getEntityManager();
+            if (em != null && entity != null) {
+                em.persist(entity);
+                salida=entity;
+                
+            } 
+            
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
+        }
+        return salida;
+        
     }
 
     public void edit(T entity) {

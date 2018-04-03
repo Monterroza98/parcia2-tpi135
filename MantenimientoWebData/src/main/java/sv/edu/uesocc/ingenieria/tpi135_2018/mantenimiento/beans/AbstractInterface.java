@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface AbstractInterface<T> {
 
-    void create(T marca);
+    T create(T marca);
 
     void edit(T marca);
 

@@ -66,7 +66,5 @@ public class UnidadResource implements Serializable{
         
         return lista;
     }    
-//    
-//    @PUT
-//    @Produces({MediaType.APPLICATION_JSON})
+
 }
