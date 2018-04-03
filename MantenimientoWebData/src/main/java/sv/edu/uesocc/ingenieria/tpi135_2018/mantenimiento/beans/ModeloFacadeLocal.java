@@ -14,20 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Modelo;
  * @author joker
  */
 @Local
-public interface ModeloFacadeLocal {
+public interface ModeloFacadeLocal extends AbstractInterface<Modelo>{
 
-    void create(Modelo modelo);
-
-    void edit(Modelo modelo);
-
-    void remove(Modelo modelo);
-
-    Modelo find(Object id);
-
-    List<Modelo> findAll();
-
-    List<Modelo> findRange(int[] range);
-
-    int count();
     
 }

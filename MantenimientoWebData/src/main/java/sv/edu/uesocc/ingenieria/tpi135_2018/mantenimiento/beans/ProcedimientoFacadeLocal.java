@@ -14,20 +14,8 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Procedimient
  * @author joker
  */
 @Local
-public interface ProcedimientoFacadeLocal {
+public interface ProcedimientoFacadeLocal extends AbstractInterface<Procedimiento> {
 
-    void create(Procedimiento procedimiento);
-
-    void edit(Procedimiento procedimiento);
-
-    void remove(Procedimiento procedimiento);
-
-    Procedimiento find(Object id);
-
-    List<Procedimiento> findAll();
-
-    List<Procedimiento> findRange(int[] range);
-
-    int count();
+    
     
 }
