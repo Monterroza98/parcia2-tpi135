@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +16,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
  * @author joker
  */
 @Stateless
-public class MarcaFacade extends AbstractFacade<Marca> {
+public class MarcaFacade extends AbstractFacade<Marca> implements MarcaFacadeLocal {
 
     @PersistenceContext(unitName = "com.mycompany_MantenimientoWebData_war_1.0-SNAPSHOTPU")
     private EntityManager em;
@@ -27,6 +28,11 @@ public class MarcaFacade extends AbstractFacade<Marca> {
 
     public MarcaFacade() {
         super(Marca.class);
+    }
+
+    @Override
+    public List findRange(int first, int pageSize) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

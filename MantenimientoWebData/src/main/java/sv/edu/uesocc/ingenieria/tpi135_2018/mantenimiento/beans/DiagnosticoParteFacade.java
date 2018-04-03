@@ -15,7 +15,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.DiagnosticoP
  * @author joker
  */
 @Stateless
-public class DiagnosticoParteFacade extends AbstractFacade<DiagnosticoParte> {
+public class DiagnosticoParteFacade extends AbstractFacade<DiagnosticoParte> implements DiagnosticoParteFacadeLocal {
 
     @PersistenceContext(unitName = "com.mycompany_MantenimientoWebData_war_1.0-SNAPSHOTPU")
     private EntityManager em;
