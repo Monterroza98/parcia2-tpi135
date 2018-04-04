@@ -14,20 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Diagnostico;
  * @author joker
  */
 @Local
-public interface DiagnosticoFacadeLocal {
+public interface DiagnosticoFacadeLocal extends AbstractFacadeInterface<Diagnostico>{
 
-    void create(Diagnostico diagnostico);
-
-    void edit(Diagnostico diagnostico);
-
-    void remove(Diagnostico diagnostico);
-
-    Diagnostico find(Object id);
-
-    List<Diagnostico> findAll();
-
-    List<Diagnostico> findRange(int[] range);
-
-    int count();
     
 }

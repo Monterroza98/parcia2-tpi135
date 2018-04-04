@@ -14,20 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoMantenim
  * @author joker
  */
 @Local
-public interface TipoMantenimientoFacadeLocal {
+public interface TipoMantenimientoFacadeLocal extends AbstractFacadeInterface<TipoMantenimiento>{
 
-    void create(TipoMantenimiento tipoMantenimiento);
-
-    void edit(TipoMantenimiento tipoMantenimiento);
-
-    void remove(TipoMantenimiento tipoMantenimiento);
-
-    TipoMantenimiento find(Object id);
-
-    List<TipoMantenimiento> findAll();
-
-    List<TipoMantenimiento> findRange(int[] range);
-
-    int count();
     
 }

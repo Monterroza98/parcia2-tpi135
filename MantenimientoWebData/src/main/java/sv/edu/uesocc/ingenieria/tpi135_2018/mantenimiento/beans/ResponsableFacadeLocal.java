@@ -14,20 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Responsable;
  * @author joker
  */
 @Local
-public interface ResponsableFacadeLocal {
+public interface ResponsableFacadeLocal extends AbstractFacadeInterface<Responsable>{
 
-    void create(Responsable responsable);
-
-    void edit(Responsable responsable);
-
-    void remove(Responsable responsable);
-
-    Responsable find(Object id);
-
-    List<Responsable> findAll();
-
-    List<Responsable> findRange(int[] range);
-
-    int count();
     
 }

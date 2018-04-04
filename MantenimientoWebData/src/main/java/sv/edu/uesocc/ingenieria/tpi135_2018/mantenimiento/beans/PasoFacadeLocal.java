@@ -14,20 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Paso;
  * @author joker
  */
 @Local
-public interface PasoFacadeLocal {
+public interface PasoFacadeLocal extends AbstractFacadeInterface<Paso>{
 
-    void create(Paso paso);
-
-    void edit(Paso paso);
-
-    void remove(Paso paso);
-
-    Paso find(Object id);
-
-    List<Paso> findAll();
-
-    List<Paso> findRange(int[] range);
-
-    int count();
     
 }

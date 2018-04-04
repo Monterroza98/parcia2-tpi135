@@ -14,20 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Mantenimient
  * @author joker
  */
 @Local
-public interface MantenimientoDetalleFacadeLocal {
+public interface MantenimientoDetalleFacadeLocal extends AbstractFacadeInterface<MantenimientoDetalle>{
 
-    void create(MantenimientoDetalle mantenimientoDetalle);
-
-    void edit(MantenimientoDetalle mantenimientoDetalle);
-
-    void remove(MantenimientoDetalle mantenimientoDetalle);
-
-    MantenimientoDetalle find(Object id);
-
-    List<MantenimientoDetalle> findAll();
-
-    List<MantenimientoDetalle> findRange(int[] range);
-
-    int count();
     
 }

@@ -14,20 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Parte;
  * @author joker
  */
 @Local
-public interface ParteFacadeLocal {
+public interface ParteFacadeLocal extends AbstractFacadeInterface<Parte>{
 
-    void create(Parte parte);
-
-    void edit(Parte parte);
-
-    void remove(Parte parte);
-
-    Parte find(Object id);
-
-    List<Parte> findAll();
-
-    List<Parte> findRange(int[] range);
-
-    int count();
     
 }

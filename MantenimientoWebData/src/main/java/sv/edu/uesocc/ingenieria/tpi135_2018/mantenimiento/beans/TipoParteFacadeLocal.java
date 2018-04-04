@@ -14,20 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoParte;
  * @author joker
  */
 @Local
-public interface TipoParteFacadeLocal {
+public interface TipoParteFacadeLocal extends AbstractFacadeInterface<TipoParte>{
 
-    void create(TipoParte tipoParte);
-
-    void edit(TipoParte tipoParte);
-
-    void remove(TipoParte tipoParte);
-
-    TipoParte find(Object id);
-
-    List<TipoParte> findAll();
-
-    List<TipoParte> findRange(int[] range);
-
-    int count();
     
 }

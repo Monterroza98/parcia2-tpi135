@@ -14,22 +14,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Unidad;
  * @author joker
  */
 @Local
-public interface UnidadFacadeLocal {
+public interface UnidadFacadeLocal extends AbstractFacadeInterface<Unidad>{
 
-    void create(Unidad unidad);
-
-    void edit(Unidad unidad);
-
-    void remove(Unidad unidad);
-
-    Unidad find(Object id);
-
-    List<Unidad> findAll();
-
-    List<Unidad> findRange(int[] range);
-
-    int count();
-
-    public List findRange(int first, int pageSize);
     
 }

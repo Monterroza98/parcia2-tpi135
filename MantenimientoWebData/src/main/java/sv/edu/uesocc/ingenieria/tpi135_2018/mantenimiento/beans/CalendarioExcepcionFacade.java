@@ -5,6 +5,7 @@
  */
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +28,16 @@ public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcio
 
     public CalendarioExcepcionFacade() {
         super(CalendarioExcepcion.class);
+    }
+
+    @Override
+    public CalendarioExcepcion findByName(Object name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<CalendarioExcepcion> findRange(int first, int pagesize) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

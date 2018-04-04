@@ -14,20 +14,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Calendario;
  * @author joker
  */
 @Local
-public interface CalendarioFacadeLocal {
+public interface CalendarioFacadeLocal extends AbstractFacadeInterface<Calendario>{
 
-    void create(Calendario calendario);
-
-    void edit(Calendario calendario);
-
-    void remove(Calendario calendario);
-
-    Calendario find(Object id);
-
-    List<Calendario> findAll();
-
-    List<Calendario> findRange(int[] range);
-
-    int count();
-    
 }

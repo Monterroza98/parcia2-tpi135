@@ -14,20 +14,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoResponsa
  * @author joker
  */
 @Local
-public interface TipoResponsableFacadeLocal {
+public interface TipoResponsableFacadeLocal extends AbstractFacadeInterface<TipoResponsable>{
 
-    void create(TipoResponsable tipoResponsable);
-
-    void edit(TipoResponsable tipoResponsable);
-
-    void remove(TipoResponsable tipoResponsable);
-
-    TipoResponsable find(Object id);
-
-    List<TipoResponsable> findAll();
-
-    List<TipoResponsable> findRange(int[] range);
-
-    int count();
-    
 }
