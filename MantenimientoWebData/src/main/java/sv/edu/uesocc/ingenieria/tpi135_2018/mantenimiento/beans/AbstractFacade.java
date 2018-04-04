@@ -6,6 +6,8 @@
 package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 
 /**
@@ -22,20 +24,82 @@ public abstract class AbstractFacade<T> {
 
     protected abstract EntityManager getEntityManager();
 
-    public void create(T entity) {
-        getEntityManager().persist(entity);
+    public boolean create(T entity){
+        boolean salida = false;
+        T e = this.crear(entity);
+        if(e != null){
+        salida =true;
+    }
+        return salida;
+    }
+    
+    
+    public T remover(T entity){
+        EntityManager em = getEntityManager();
+        T salida = null;
+        try {
+            if (em!=null) {
+                em.remove(getEntityManager().merge(entity));
+                salida = entity;
+            }
+        } catch (Exception e) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
+        }
+        return salida;
+    }
+    
+    public T crear(T entity){
+      T salida = null;
+      try{
+          EntityManager em = getEntityManager();
+          if(em != null && entity != null){
+              em.persist(entity);
+              salida = entity;
+          }
+      }catch(Exception e){
+          Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
+      }
+      return salida;
+    }
+        
+    public boolean edit(T entity) {
+        boolean salida = false;
+        T e = this.editar(entity);
+        if(e != null){
+        salida =true;
+    }
+        return salida;
+    }
+    
+    public T editar(T entity){
+      T salida = null;
+      try{
+          EntityManager em = getEntityManager();
+          if(em != null && entity != null){
+              em.merge(entity);
+              salida = entity;
+          }
+      }catch(Exception e){
+          Logger.getLogger(getClass().getName()).log(Level.SEVERE, e.getMessage(), e);
+      }
+      return salida;
     }
 
-    public void edit(T entity) {
-        getEntityManager().merge(entity);
-    }
-
-    public void remove(T entity) {
-        getEntityManager().remove(getEntityManager().merge(entity));
+    public boolean remove(T entity) {
+        try {
+           getEntityManager().remove(getEntityManager().merge(entity));
+        } catch (Exception e) {
+            return false;
+        }
+            return true;
     }
 
     public T find(Object id) {
         return getEntityManager().find(entityClass, id);
+    }
+    
+    public T findbyName(Object name) {
+        return getEntityManager().find(entityClass, name);
     }
 
     public List<T> findAll() {

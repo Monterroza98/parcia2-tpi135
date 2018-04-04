@@ -15,7 +15,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Solicitud;
  * @author joker
  */
 @Stateless
-public class SolicitudFacade extends AbstractFacade<Solicitud> {
+public class SolicitudFacade extends AbstractFacade<Solicitud> implements SolicitudFacadeLocal {
 
     @PersistenceContext(unitName = "com.mycompany_MantenimientoWebData_war_1.0-SNAPSHOTPU")
     private EntityManager em;

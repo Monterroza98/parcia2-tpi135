@@ -15,7 +15,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Estado;
  * @author joker
  */
 @Stateless
-public class EstadoFacade extends AbstractFacade<Estado> {
+public class EstadoFacade extends AbstractFacade<Estado> implements EstadoFacadeLocal {
 
     @PersistenceContext(unitName = "com.mycompany_MantenimientoWebData_war_1.0-SNAPSHOTPU")
     private EntityManager em;

@@ -15,7 +15,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Parte;
  * @author joker
  */
 @Stateless
-public class ParteFacade extends AbstractFacade<Parte> {
+public class ParteFacade extends AbstractFacade<Parte> implements ParteFacadeLocal {
 
     @PersistenceContext(unitName = "com.mycompany_MantenimientoWebData_war_1.0-SNAPSHOTPU")
     private EntityManager em;

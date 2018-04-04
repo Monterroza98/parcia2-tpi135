@@ -15,7 +15,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Equipo;
  * @author joker
  */
 @Stateless
-public class EquipoFacade extends AbstractFacade<Equipo> {
+public class EquipoFacade extends AbstractFacade<Equipo> implements EquipoFacadeLocal {
 
     @PersistenceContext(unitName = "com.mycompany_MantenimientoWebData_war_1.0-SNAPSHOTPU")
     private EntityManager em;

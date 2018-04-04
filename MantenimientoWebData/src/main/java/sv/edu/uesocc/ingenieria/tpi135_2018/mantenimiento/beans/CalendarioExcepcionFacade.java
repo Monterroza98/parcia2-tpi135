@@ -15,7 +15,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.CalendarioEx
  * @author joker
  */
 @Stateless
-public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcion> {
+public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcion> implements CalendarioExcepcionFacadeLocal {
 
     @PersistenceContext(unitName = "com.mycompany_MantenimientoWebData_war_1.0-SNAPSHOTPU")
     private EntityManager em;
@@ -28,5 +28,7 @@ public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcio
     public CalendarioExcepcionFacade() {
         super(CalendarioExcepcion.class);
     }
+
+
     
 }

@@ -15,7 +15,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Responsable;
  * @author joker
  */
 @Stateless
-public class ResponsableFacade extends AbstractFacade<Responsable> {
+public class ResponsableFacade extends AbstractFacade<Responsable> implements ResponsableFacadeLocal {
 
     @PersistenceContext(unitName = "com.mycompany_MantenimientoWebData_war_1.0-SNAPSHOTPU")
     private EntityManager em;
