@@ -30,16 +30,5 @@ public class CalendarioExcepcionFacade extends AbstractFacade<CalendarioExcepcio
         super(CalendarioExcepcion.class);
     }
 
-    @Override
-    public CalendarioExcepcion findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<CalendarioExcepcion> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-
-    
+  
 }

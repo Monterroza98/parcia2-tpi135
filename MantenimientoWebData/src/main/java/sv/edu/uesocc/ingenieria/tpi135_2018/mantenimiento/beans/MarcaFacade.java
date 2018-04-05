@@ -9,6 +9,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
 
 /**
@@ -29,14 +30,14 @@ public class MarcaFacade extends AbstractFacade<Marca> implements MarcaFacadeLoc
     public MarcaFacade() {
         super(Marca.class);
     }  
-
+    
+                
     @Override
-    public Marca findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Marca> findByNombreLike(String nombre, Integer first, Integer pageSize) {
+        Query query = em.createNamedQuery("Marca.findByNombreLike");
+        List<Marca> lista= query.getResultList();
+        return lista;
+        
     }
 
-    @Override
-    public List<Marca> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

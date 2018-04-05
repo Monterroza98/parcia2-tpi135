@@ -29,15 +29,5 @@ public class PrioridadFacade extends AbstractFacade<Prioridad> implements Priori
     public PrioridadFacade() {
         super(Prioridad.class);
     }
-
-    @Override
-    public Prioridad findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Prioridad> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+   
 }
