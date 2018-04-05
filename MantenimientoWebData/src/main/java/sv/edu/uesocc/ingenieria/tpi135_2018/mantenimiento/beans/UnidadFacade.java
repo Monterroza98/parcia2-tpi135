@@ -29,15 +29,5 @@ public class UnidadFacade extends AbstractFacade<Unidad> implements UnidadFacade
     public UnidadFacade() {
         super(Unidad.class);
     }
-
-    @Override
-    public List findRange(int first, int pageSize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Unidad findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+ 
 }

@@ -30,14 +30,4 @@ public class OrdenTrabajoFacade extends AbstractFacade<OrdenTrabajo> implements 
         super(OrdenTrabajo.class);
     }
 
-    @Override
-    public OrdenTrabajo findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<OrdenTrabajo> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

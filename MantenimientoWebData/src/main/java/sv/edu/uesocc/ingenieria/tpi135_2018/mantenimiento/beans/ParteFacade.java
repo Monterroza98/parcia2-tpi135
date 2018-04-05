@@ -29,15 +29,5 @@ public class ParteFacade extends AbstractFacade<Parte> implements ParteFacadeLoc
     public ParteFacade() {
         super(Parte.class);
     }
-
-    @Override
-    public Parte findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Parte> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+   
 }

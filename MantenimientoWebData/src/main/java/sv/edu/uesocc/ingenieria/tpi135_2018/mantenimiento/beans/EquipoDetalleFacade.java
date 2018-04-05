@@ -30,14 +30,5 @@ public class EquipoDetalleFacade extends AbstractFacade<EquipoDetalle> implement
         super(EquipoDetalle.class);
     }
 
-    @Override
-    public EquipoDetalle findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<EquipoDetalle> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
 }

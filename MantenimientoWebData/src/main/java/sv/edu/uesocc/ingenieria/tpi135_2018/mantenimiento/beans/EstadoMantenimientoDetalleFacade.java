@@ -30,14 +30,4 @@ public class EstadoMantenimientoDetalleFacade extends AbstractFacade<EstadoMante
         super(EstadoMantenimientoDetalle.class);
     }
 
-    @Override
-    public EstadoMantenimientoDetalle findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<EstadoMantenimientoDetalle> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

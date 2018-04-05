@@ -27,11 +27,13 @@ public interface AbstractFacadeInterface<T> {
     
     public T find(Object id);
     
-    public T findByName(Object name);
+//    public T findByName(Object name);
     
     public List<T> findAll();
     
     public List<T> findRange(int first, int pagesize);
+    
+    int count();
     
  
 }

@@ -29,15 +29,5 @@ public class SolicitudFacade extends AbstractFacade<Solicitud> implements Solici
     public SolicitudFacade() {
         super(Solicitud.class);
     }
-
-    @Override
-    public Solicitud findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Solicitud> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+  
 }

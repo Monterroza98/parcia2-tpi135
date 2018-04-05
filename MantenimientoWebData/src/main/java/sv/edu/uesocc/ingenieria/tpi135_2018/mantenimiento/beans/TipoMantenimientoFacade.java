@@ -29,15 +29,5 @@ public class TipoMantenimientoFacade extends AbstractFacade<TipoMantenimiento> i
     public TipoMantenimientoFacade() {
         super(TipoMantenimiento.class);
     }
-
-    @Override
-    public TipoMantenimiento findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<TipoMantenimiento> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+   
 }

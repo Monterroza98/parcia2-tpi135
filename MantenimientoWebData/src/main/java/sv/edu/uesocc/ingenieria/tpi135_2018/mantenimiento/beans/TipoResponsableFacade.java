@@ -30,14 +30,4 @@ public class TipoResponsableFacade extends AbstractFacade<TipoResponsable> imple
         super(TipoResponsable.class);
     }
 
-    @Override
-    public TipoResponsable findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<TipoResponsable> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

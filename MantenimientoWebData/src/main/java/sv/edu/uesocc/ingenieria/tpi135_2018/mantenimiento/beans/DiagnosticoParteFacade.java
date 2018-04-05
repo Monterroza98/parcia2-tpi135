@@ -30,14 +30,4 @@ public class DiagnosticoParteFacade extends AbstractFacade<DiagnosticoParte> imp
         super(DiagnosticoParte.class);
     }
 
-    @Override
-    public DiagnosticoParte findByName(Object name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<DiagnosticoParte> findRange(int first, int pagesize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
