@@ -1,1 +1,2 @@
-
+create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.optional.MysqlDataSource --restype javax.sql.DataSource --property user=user:password=db1234:DatabaseName=mantenimientodb:ServerName=dbpostgres:port=5432 test-pool
+create-jdbc-resource test-pool jdbc/TPIdataSource
