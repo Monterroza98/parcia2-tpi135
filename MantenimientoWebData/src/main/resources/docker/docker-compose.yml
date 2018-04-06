@@ -1,7 +1,7 @@
 version: '2.2'
 services:
  dbpostgres:
-  build: ./
+  build: ./postgres
   volumes:
    - /private/var/lib/postgresql:/var/lib/postgresql/data
   ports:
@@ -11,7 +11,7 @@ services:
    POSTGRES_PASSWORD: db1234
    POSTGRES_DB: mantenimientodb
  micro1:
-  build: ./
+  build: ./payara
   ports:
    - "1080:8080"
   volumes:
