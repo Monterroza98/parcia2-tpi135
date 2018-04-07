@@ -9,6 +9,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Prioridad;
 
 /**
@@ -32,7 +33,9 @@ public class PrioridadFacade extends AbstractFacade<Prioridad> implements Priori
 
     @Override
     public List<Prioridad> findByNombreLike(String name, Integer first, Integer pageSize) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = em.createNamedQuery("Prioridad.findByNombreLike");
+        List<Prioridad> lista= query.getResultList();
+        return lista;
     }
    
 }
