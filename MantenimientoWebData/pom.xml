@@ -145,6 +145,41 @@
 
     <build>
         <plugins>
+            <!--docker-compose up -->
+            <plugin>
+            <groupId>com.dkanejs.maven.plugins</groupId>
+            <artifactId>docker-compose-maven-plugin</artifactId>
+            <version>1.0.3</version>
+            <executions>
+                <execution>
+                    <id>up</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>up</goal>
+                    </goals>
+                    <configuration>
+                        <composeFile>${project.basedir}/src/main/resources/docker/docker-compose.yml</composeFile>
+                        <detachedMode>true</detachedMode>
+                    </configuration>
+                </execution>
+                <!--docker-compose up -->
+                <!--
+                <execution>
+                    <id>down</id>
+                    <phase>verify</phase>
+                    <goals>
+                        <goal>down</goal>
+                    </goals>
+                    <configuration>
+                        <composeFile>${project.basedir}/docker-compose.yml</composeFile>
+                        <removeVolumes>true</removeVolumes>
+                    </configuration>
+                </execution>
+                -->
+            </executions>
+        </plugin>
+        
+        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
