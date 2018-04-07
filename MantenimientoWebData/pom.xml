@@ -162,25 +162,31 @@
                         <detachedMode>true</detachedMode>
                     </configuration>
                 </execution>
-                <!--docker-compose up -->
-                <!--
-                <execution>
-                    <id>down</id>
-                    <phase>verify</phase>
-                    <goals>
-                        <goal>down</goal>
-                    </goals>
-                    <configuration>
-                        <composeFile>${project.basedir}/docker-compose.yml</composeFile>
-                        <removeVolumes>true</removeVolumes>
-                    </configuration>
-                </execution>
-                -->
             </executions>
         </plugin>
-        
-        
-            <plugin>
+            <!--mover el .war -->
+        <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>mover-a-docker</id>
+                        <phase>package</phase>
+                        <goals> 
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration> 
+                            <executable>cp</executable>
+                            <arguments> 
+                                <argument>${project.build.directory}/MantenimientoWebData-1.0-SNAPSHOT.war</argument>
+                                <argument>${project.basedir}/src/main/resources/docker/payara/</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>    
+                </executions>
+            </plugin>  
+        <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
