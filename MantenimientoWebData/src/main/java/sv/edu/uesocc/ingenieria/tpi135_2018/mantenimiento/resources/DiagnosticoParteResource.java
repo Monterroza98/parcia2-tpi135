@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
@@ -19,31 +17,29 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.MarcaFacadeLocal;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.DiagnosticoParteFacadeLocal;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.DiagnosticoParte;
 
 /**
  *
  * @author joker
  */
-@Path("marca")
-public class MarcaResource implements Serializable {
-
+@Path("diagnosticoParte")
+public class DiagnosticoParteResource implements Serializable{
+    
     @EJB
-    private MarcaFacadeLocal mfl;
-
+    private DiagnosticoParteFacadeLocal dpfl;
+    
     @GET
     @Path("all")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Marca> findAll() {
+    public List<DiagnosticoParte> findAll() {
         List lista = null;
         try {
-            lista = mfl.findAll();
+            lista = dpfl.findAll();
             if (lista != null) {
                 return lista;
             }
@@ -57,51 +53,26 @@ public class MarcaResource implements Serializable {
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Marca> findRange(
+    public List<DiagnosticoParte> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
             @DefaultValue("0") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Marca> salida = new ArrayList<>();
-            salida.add(new Marca());
+            List<DiagnosticoParte> salida = new ArrayList<>();
+            salida.add(new DiagnosticoParte());
             return salida;
         }
         return Collections.EMPTY_LIST;
     }
 
-    @GET
-    @Path("nombre/{nombre}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response findByName(
-            @PathParam("nombre") final String nombre,
-            @QueryParam("first") @DefaultValue("0") int first,
-            @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
-        if (nombre != null && mfl != null) {
-            List<Marca> salida = mfl.findByNombreLike(nombre, first, pageSize);
-            if (salida != null && !salida.isEmpty()) {
-                JsonArrayBuilder ab = Json.createArrayBuilder();
-                for (Marca marca : salida) {
-                    ab.add(Json.createObjectBuilder()
-                            .add("idMarca", marca.getIdMarca())
-                            .add("nombre", marca.getNombre())
-                            .add("activo", marca.getActivo()));
-                }
-                return Response.ok(ab.build()).build();
-
-            }
-
-        }
-        return (Response) Collections.EMPTY_LIST;
-
-    }
 
     @Path("count")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Integer count() {
         try {
-            if (mfl != null) {
-                return mfl.count();
+            if (dpfl != null) {
+                return dpfl.count();
             }
         } catch (Exception e) {
 
@@ -116,12 +87,12 @@ public class MarcaResource implements Serializable {
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
-    public Marca create(Marca registro) {
+    public DiagnosticoParte create(DiagnosticoParte registro) {
 
         if (registro != null) {
             try {
-                if (mfl != null) {
-                    Marca m = mfl.crear(registro);
+                if (dpfl != null) {
+                    DiagnosticoParte m = dpfl.crear(registro);
                     if (m != null) {
                         return m;
                     }
@@ -129,17 +100,17 @@ public class MarcaResource implements Serializable {
             } catch (Exception e) {
             }
         }
-        return new Marca();
+        return new DiagnosticoParte();
     }
     
     @PUT
     @Produces({MediaType.APPLICATION_JSON})
-    public Marca edit(Marca registro) {
+    public DiagnosticoParte edit(DiagnosticoParte registro) {
 
-        if (registro != null && registro.getIdMarca() == null) {
+        if (registro != null && registro.getIdDiagnosticoParte()== null) {
             try {
-                if (mfl != null) {
-                    Marca m = mfl.editar(registro);
+                if (dpfl != null) {
+                    DiagnosticoParte m = dpfl.editar(registro);
                     if (m != null) {
                         return m;
                     }
@@ -147,18 +118,18 @@ public class MarcaResource implements Serializable {
             } catch (Exception e) {
             }
         }
-        return new Marca();
+        return new DiagnosticoParte();
     }
 
 
     @DELETE
     @Produces({MediaType.APPLICATION_JSON})
-    public Marca remove(Marca registro) {
+    public DiagnosticoParte remove(DiagnosticoParte registro) {
 
-        if (registro != null && registro.getIdMarca() == null) {
+        if (registro != null && registro.getIdDiagnosticoParte() == null) {
             try {
-                if (mfl != null) {
-                    Marca m = mfl.remover(registro);
+                if (dpfl != null) {
+                    DiagnosticoParte m = dpfl.remover(registro);
                     if (m != null) {
                         return m;
                     }
@@ -166,8 +137,8 @@ public class MarcaResource implements Serializable {
             } catch (Exception e) {
             }
         }
-        return new Marca();
+        return new DiagnosticoParte();
     }
 
-}
     
+}

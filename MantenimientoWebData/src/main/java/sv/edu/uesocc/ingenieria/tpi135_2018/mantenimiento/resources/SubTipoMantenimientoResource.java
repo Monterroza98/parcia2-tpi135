@@ -24,26 +24,27 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.MarcaFacadeLocal;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.SubTipoMantenimientoFacadeLocal;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.SubTipoMantenimiento;
 
 /**
  *
  * @author joker
  */
-@Path("marca")
-public class MarcaResource implements Serializable {
-
+@Path("subTipoMantenimiento")
+public class SubTipoMantenimientoResource implements Serializable{
+    
     @EJB
-    private MarcaFacadeLocal mfl;
-
-    @GET
+    private SubTipoMantenimientoFacadeLocal stmfl;
+    
+     @GET
     @Path("all")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Marca> findAll() {
+    public List<SubTipoMantenimiento> findAll() {
         List lista = null;
         try {
-            lista = mfl.findAll();
+            lista = stmfl.findAll();
             if (lista != null) {
                 return lista;
             }
@@ -57,13 +58,13 @@ public class MarcaResource implements Serializable {
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Marca> findRange(
+    public List<SubTipoMantenimiento> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
             @DefaultValue("0") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<Marca> salida = new ArrayList<>();
-            salida.add(new Marca());
+            List<SubTipoMantenimiento> salida = new ArrayList<>();
+            salida.add(new SubTipoMantenimiento());
             return salida;
         }
         return Collections.EMPTY_LIST;
@@ -76,15 +77,14 @@ public class MarcaResource implements Serializable {
             @PathParam("nombre") final String nombre,
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
-        if (nombre != null && mfl != null) {
-            List<Marca> salida = mfl.findByNombreLike(nombre, first, pageSize);
+        if (nombre != null && stmfl != null) {
+            List<SubTipoMantenimiento> salida = stmfl.findByNombreLike(nombre, first, pageSize);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
-                for (Marca marca : salida) {
+                for (SubTipoMantenimiento s : salida) {
                     ab.add(Json.createObjectBuilder()
-                            .add("idMarca", marca.getIdMarca())
-                            .add("nombre", marca.getNombre())
-                            .add("activo", marca.getActivo()));
+                            .add("idSubTipoMantenimiento", s.getIdSubTipoMantenimiento())
+                            .add("nombre", s.getNombre()));
                 }
                 return Response.ok(ab.build()).build();
 
@@ -100,8 +100,8 @@ public class MarcaResource implements Serializable {
     @Produces({MediaType.APPLICATION_JSON})
     public Integer count() {
         try {
-            if (mfl != null) {
-                return mfl.count();
+            if (stmfl != null) {
+                return stmfl.count();
             }
         } catch (Exception e) {
 
@@ -116,12 +116,12 @@ public class MarcaResource implements Serializable {
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
-    public Marca create(Marca registro) {
+    public SubTipoMantenimiento create(SubTipoMantenimiento registro) {
 
         if (registro != null) {
             try {
-                if (mfl != null) {
-                    Marca m = mfl.crear(registro);
+                if (stmfl != null) {
+                    SubTipoMantenimiento m = stmfl.crear(registro);
                     if (m != null) {
                         return m;
                     }
@@ -129,17 +129,17 @@ public class MarcaResource implements Serializable {
             } catch (Exception e) {
             }
         }
-        return new Marca();
+        return new SubTipoMantenimiento();
     }
     
     @PUT
     @Produces({MediaType.APPLICATION_JSON})
-    public Marca edit(Marca registro) {
+    public SubTipoMantenimiento edit(SubTipoMantenimiento registro) {
 
-        if (registro != null && registro.getIdMarca() == null) {
+        if (registro != null && registro.getIdSubTipoMantenimiento() == null) {
             try {
-                if (mfl != null) {
-                    Marca m = mfl.editar(registro);
+                if (stmfl != null) {
+                    SubTipoMantenimiento m = stmfl.editar(registro);
                     if (m != null) {
                         return m;
                     }
@@ -147,18 +147,18 @@ public class MarcaResource implements Serializable {
             } catch (Exception e) {
             }
         }
-        return new Marca();
+        return new SubTipoMantenimiento();
     }
 
 
     @DELETE
     @Produces({MediaType.APPLICATION_JSON})
-    public Marca remove(Marca registro) {
+    public SubTipoMantenimiento remove(SubTipoMantenimiento registro) {
 
-        if (registro != null && registro.getIdMarca() == null) {
+        if (registro != null && registro.getIdSubTipoMantenimiento() == null) {
             try {
-                if (mfl != null) {
-                    Marca m = mfl.remover(registro);
+                if (stmfl != null) {
+                    SubTipoMantenimiento m = stmfl.remover(registro);
                     if (m != null) {
                         return m;
                     }
@@ -166,8 +166,7 @@ public class MarcaResource implements Serializable {
             } catch (Exception e) {
             }
         }
-        return new Marca();
+        return new SubTipoMantenimiento();
     }
-
-}
     
+}
