@@ -29,5 +29,10 @@ public class SubTipoMantenimientoFacade extends AbstractFacade<SubTipoMantenimie
     public SubTipoMantenimientoFacade() {
         super(SubTipoMantenimiento.class);
     }
+
+    @Override
+    public List<SubTipoMantenimiento> findByNombreLike(String name, Integer first, Integer pageSize) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
 }

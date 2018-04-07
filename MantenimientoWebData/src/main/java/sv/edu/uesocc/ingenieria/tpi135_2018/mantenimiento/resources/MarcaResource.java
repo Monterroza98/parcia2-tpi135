@@ -7,7 +7,6 @@ package sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.resources;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import javax.ejb.EJB;
@@ -93,7 +92,6 @@ public class MarcaResource implements Serializable {
 
         }
         return (Response) Collections.EMPTY_LIST;
-//        return (Response.Status.NOT_FOUND).header("filter-not-found", nombre).build();
 
     }
 

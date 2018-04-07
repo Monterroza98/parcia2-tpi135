@@ -30,4 +30,9 @@ public class TipoParteFacade extends AbstractFacade<TipoParte> implements TipoPa
         super(TipoParte.class);
     }
 
+    @Override
+    public List<TipoParte> findByNombreLike(String name, Integer first, Integer pageSize) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -16,5 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Estado;
 @Local
 public interface EstadoFacadeLocal extends AbstractFacadeInterface<Estado>{
 
+    public List<Estado> findByNombreLike(String name, Integer first, Integer pageSize);
     
 }

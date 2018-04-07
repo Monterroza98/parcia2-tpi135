@@ -16,5 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Procedimient
 @Local
 public interface ProcedimientoFacadeLocal extends AbstractFacadeInterface<Procedimiento>{
 
+    public List<Procedimiento> findByNombreLike(String name, Integer first, Integer pageSize);
     
 }

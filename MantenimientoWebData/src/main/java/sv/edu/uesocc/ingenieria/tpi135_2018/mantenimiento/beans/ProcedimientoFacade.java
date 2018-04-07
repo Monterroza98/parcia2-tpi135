@@ -30,4 +30,9 @@ public class ProcedimientoFacade extends AbstractFacade<Procedimiento> implement
         super(Procedimiento.class);
     }
 
+    @Override
+    public List<Procedimiento> findByNombreLike(String name, Integer first, Integer pageSize) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

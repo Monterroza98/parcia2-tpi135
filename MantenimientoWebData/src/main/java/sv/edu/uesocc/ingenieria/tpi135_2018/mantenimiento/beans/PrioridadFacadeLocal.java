@@ -16,5 +16,6 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Prioridad;
 @Local
 public interface PrioridadFacadeLocal extends AbstractFacadeInterface<Prioridad>{
 
+    public List<Prioridad> findByNombreLike(String name, Integer first, Integer pageSize);
     
 }

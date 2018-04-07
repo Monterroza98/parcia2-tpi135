@@ -9,10 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import javafx.scene.media.Media;
 import javax.ejb.EJB;
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
@@ -20,31 +17,29 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.TipoResponsableFacadeLocal;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoResponsable;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.DiagnosticoParteFacadeLocal;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.DiagnosticoParte;
 
 /**
  *
  * @author joker
  */
-@Path("tipoResponsable")
-public class TipoResponsableResorce implements  Serializable{
+@Path("diagnosticoParte")
+public class DiagnosticoParteResource implements Serializable{
     
     @EJB
-    private TipoResponsableFacadeLocal trfl;
+    private DiagnosticoParteFacadeLocal dpfl;
     
     @GET
     @Path("all")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<TipoResponsable> findAll() {
+    public List<DiagnosticoParte> findAll() {
         List lista = null;
         try {
-            lista = trfl.findAll();
+            lista = dpfl.findAll();
             if (lista != null) {
                 return lista;
             }
@@ -58,50 +53,26 @@ public class TipoResponsableResorce implements  Serializable{
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public List<TipoResponsable> findRange(
+    public List<DiagnosticoParte> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
             @DefaultValue("0") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<TipoResponsable> salida = new ArrayList<>();
-            salida.add(new TipoResponsable());
+            List<DiagnosticoParte> salida = new ArrayList<>();
+            salida.add(new DiagnosticoParte());
             return salida;
         }
         return Collections.EMPTY_LIST;
     }
 
-    @GET
-    @Path("nombre/{nombre}")
-    @Produces({MediaType.APPLICATION_JSON})
-    public Response findByName(
-            @PathParam("nombre") final String nombre,
-            @QueryParam("first") @DefaultValue("0") int first,
-            @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
-        if (nombre != null && trfl != null) {
-            List<TipoResponsable> salida = trfl.findByNombreLike(nombre, first, pageSize);
-            if (salida != null && !salida.isEmpty()) {
-                JsonArrayBuilder ab = Json.createArrayBuilder();
-                for (TipoResponsable t : salida) {
-                    ab.add(Json.createObjectBuilder()
-                            .add("idTipoResponsable", t.getIdTipoResponsable())
-                            .add("nombre", t.getNombre()));
-                }
-                return Response.ok(ab.build()).build();
-
-            }
-
-        }
-        return (Response) Collections.EMPTY_LIST;
-
-    }
 
     @Path("count")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public Integer count() {
         try {
-            if (trfl != null) {
-                return trfl.count();
+            if (dpfl != null) {
+                return dpfl.count();
             }
         } catch (Exception e) {
 
@@ -116,12 +87,12 @@ public class TipoResponsableResorce implements  Serializable{
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
-    public TipoResponsable create(TipoResponsable registro) {
+    public DiagnosticoParte create(DiagnosticoParte registro) {
 
         if (registro != null) {
             try {
-                if (trfl != null) {
-                    TipoResponsable m = trfl.crear(registro);
+                if (dpfl != null) {
+                    DiagnosticoParte m = dpfl.crear(registro);
                     if (m != null) {
                         return m;
                     }
@@ -129,17 +100,17 @@ public class TipoResponsableResorce implements  Serializable{
             } catch (Exception e) {
             }
         }
-        return new TipoResponsable();
+        return new DiagnosticoParte();
     }
     
     @PUT
     @Produces({MediaType.APPLICATION_JSON})
-    public TipoResponsable edit(TipoResponsable registro) {
+    public DiagnosticoParte edit(DiagnosticoParte registro) {
 
-        if (registro != null && registro.getIdTipoResponsable() == null) {
+        if (registro != null && registro.getIdDiagnosticoParte()== null) {
             try {
-                if (trfl != null) {
-                    TipoResponsable m = trfl.editar(registro);
+                if (dpfl != null) {
+                    DiagnosticoParte m = dpfl.editar(registro);
                     if (m != null) {
                         return m;
                     }
@@ -147,18 +118,18 @@ public class TipoResponsableResorce implements  Serializable{
             } catch (Exception e) {
             }
         }
-        return new TipoResponsable();
+        return new DiagnosticoParte();
     }
 
 
     @DELETE
     @Produces({MediaType.APPLICATION_JSON})
-    public TipoResponsable remove(TipoResponsable registro) {
+    public DiagnosticoParte remove(DiagnosticoParte registro) {
 
-        if (registro != null && registro.getIdTipoResponsable() == null) {
+        if (registro != null && registro.getIdDiagnosticoParte() == null) {
             try {
-                if (trfl != null) {
-                    TipoResponsable m = trfl.remover(registro);
+                if (dpfl != null) {
+                    DiagnosticoParte m = dpfl.remover(registro);
                     if (m != null) {
                         return m;
                     }
@@ -166,9 +137,8 @@ public class TipoResponsableResorce implements  Serializable{
             } catch (Exception e) {
             }
         }
-        return new TipoResponsable();
+        return new DiagnosticoParte();
     }
 
-    
     
 }

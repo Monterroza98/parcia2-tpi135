@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import javafx.scene.media.Media;
 import javax.ejb.EJB;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
@@ -25,26 +24,26 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.TipoResponsableFacadeLocal;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoResponsable;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.TipoMantenimientoFacadeLocal;
+import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoMantenimiento;
 
 /**
  *
  * @author joker
  */
-@Path("tipoResponsable")
-public class TipoResponsableResorce implements  Serializable{
+@Path("tipoMantenimiento")
+public class TipoMantenimientoResource implements Serializable{
     
     @EJB
-    private TipoResponsableFacadeLocal trfl;
+    private TipoMantenimientoFacadeLocal tmfl;
     
     @GET
     @Path("all")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<TipoResponsable> findAll() {
+    public List<TipoMantenimiento> findAll() {
         List lista = null;
         try {
-            lista = trfl.findAll();
+            lista = tmfl.findAll();
             if (lista != null) {
                 return lista;
             }
@@ -58,13 +57,13 @@ public class TipoResponsableResorce implements  Serializable{
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
-    public List<TipoResponsable> findRange(
+    public List<TipoMantenimiento> findRange(
             @DefaultValue("0") @QueryParam("first") int first,
             @DefaultValue("0") @QueryParam("pagesize") int pageSize
     ) {
         if (validarRangos(first, pageSize)) {
-            List<TipoResponsable> salida = new ArrayList<>();
-            salida.add(new TipoResponsable());
+            List<TipoMantenimiento> salida = new ArrayList<>();
+            salida.add(new TipoMantenimiento());
             return salida;
         }
         return Collections.EMPTY_LIST;
@@ -77,14 +76,15 @@ public class TipoResponsableResorce implements  Serializable{
             @PathParam("nombre") final String nombre,
             @QueryParam("first") @DefaultValue("0") int first,
             @QueryParam("pageSize") @DefaultValue("50") int pageSize) {
-        if (nombre != null && trfl != null) {
-            List<TipoResponsable> salida = trfl.findByNombreLike(nombre, first, pageSize);
+        if (nombre != null && tmfl != null) {
+            List<TipoMantenimiento> salida = tmfl.findByNombreLike(nombre, first, pageSize);
             if (salida != null && !salida.isEmpty()) {
                 JsonArrayBuilder ab = Json.createArrayBuilder();
-                for (TipoResponsable t : salida) {
+                for (TipoMantenimiento t : salida) {
                     ab.add(Json.createObjectBuilder()
-                            .add("idTipoResponsable", t.getIdTipoResponsable())
-                            .add("nombre", t.getNombre()));
+                            .add("idMarca", t.getIdTipoMantenimiento())
+                            .add("nombre", t.getNombre())
+                            .add("activo", t.getActivo()));
                 }
                 return Response.ok(ab.build()).build();
 
@@ -100,8 +100,8 @@ public class TipoResponsableResorce implements  Serializable{
     @Produces({MediaType.APPLICATION_JSON})
     public Integer count() {
         try {
-            if (trfl != null) {
-                return trfl.count();
+            if (tmfl != null) {
+                return tmfl.count();
             }
         } catch (Exception e) {
 
@@ -116,12 +116,12 @@ public class TipoResponsableResorce implements  Serializable{
     @POST
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_JSON)
-    public TipoResponsable create(TipoResponsable registro) {
+    public TipoMantenimiento create(TipoMantenimiento registro) {
 
         if (registro != null) {
             try {
-                if (trfl != null) {
-                    TipoResponsable m = trfl.crear(registro);
+                if (tmfl != null) {
+                    TipoMantenimiento m = tmfl.crear(registro);
                     if (m != null) {
                         return m;
                     }
@@ -129,17 +129,17 @@ public class TipoResponsableResorce implements  Serializable{
             } catch (Exception e) {
             }
         }
-        return new TipoResponsable();
+        return new TipoMantenimiento();
     }
     
     @PUT
     @Produces({MediaType.APPLICATION_JSON})
-    public TipoResponsable edit(TipoResponsable registro) {
+    public TipoMantenimiento edit(TipoMantenimiento registro) {
 
-        if (registro != null && registro.getIdTipoResponsable() == null) {
+        if (registro != null) {
             try {
-                if (trfl != null) {
-                    TipoResponsable m = trfl.editar(registro);
+                if (tmfl != null) {
+                    TipoMantenimiento m = tmfl.crear(registro);
                     if (m != null) {
                         return m;
                     }
@@ -147,18 +147,18 @@ public class TipoResponsableResorce implements  Serializable{
             } catch (Exception e) {
             }
         }
-        return new TipoResponsable();
+        return new TipoMantenimiento();
     }
 
 
     @DELETE
     @Produces({MediaType.APPLICATION_JSON})
-    public TipoResponsable remove(TipoResponsable registro) {
+    public TipoMantenimiento remove(TipoMantenimiento registro) {
 
-        if (registro != null && registro.getIdTipoResponsable() == null) {
+        if (registro != null && registro.getIdTipoMantenimiento() == null) {
             try {
-                if (trfl != null) {
-                    TipoResponsable m = trfl.remover(registro);
+                if (tmfl != null) {
+                    TipoMantenimiento m = tmfl.remover(registro);
                     if (m != null) {
                         return m;
                     }
@@ -166,9 +166,9 @@ public class TipoResponsableResorce implements  Serializable{
             } catch (Exception e) {
             }
         }
-        return new TipoResponsable();
+        return new TipoMantenimiento();
     }
-
+    
     
     
 }

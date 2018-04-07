@@ -29,5 +29,10 @@ public class ResponsableFacade extends AbstractFacade<Responsable> implements Re
     public ResponsableFacade() {
         super(Responsable.class);
     }
+
+    @Override
+    public List<Responsable> findByNombreLike(String name, Integer first, Integer pageSize) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
   
 }
