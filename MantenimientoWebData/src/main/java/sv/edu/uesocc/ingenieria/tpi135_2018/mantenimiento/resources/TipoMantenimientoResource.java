@@ -25,7 +25,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.beans.TipoMantenimientoFacadeLocal;
-import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
 import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.TipoMantenimiento;
 
 /**
@@ -154,12 +153,12 @@ public class TipoMantenimientoResource implements Serializable{
 
     @DELETE
     @Produces({MediaType.APPLICATION_JSON})
-    public Marca remove(Marca registro) {
+    public TipoMantenimiento remove(TipoMantenimiento registro) {
 
-        if (registro != null && registro.getIdMarca() == null) {
+        if (registro != null && registro.getIdTipoMantenimiento() == null) {
             try {
-                if (mfl != null) {
-                    Marca m = mfl.remover(registro);
+                if (tmfl != null) {
+                    TipoMantenimiento m = tmfl.remover(registro);
                     if (m != null) {
                         return m;
                     }
@@ -167,7 +166,7 @@ public class TipoMantenimientoResource implements Serializable{
             } catch (Exception e) {
             }
         }
-        return new Marca();
+        return new TipoMantenimiento();
     }
     
     

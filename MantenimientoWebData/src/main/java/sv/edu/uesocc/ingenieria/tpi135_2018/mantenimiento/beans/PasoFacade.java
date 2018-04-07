@@ -30,4 +30,9 @@ public class PasoFacade extends AbstractFacade<Paso> implements PasoFacadeLocal 
         super(Paso.class);
     }
 
+    @Override
+    public List<Paso> findByNombreLike(String name, Integer first, Integer pageSize) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
