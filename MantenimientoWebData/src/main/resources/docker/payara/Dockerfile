@@ -1,5 +1,7 @@
-FROM payara/micro
-RUN wget -O /opt/payara/postgresql-42.2.2.jar  https://jdbc.postgresql.org/download/postgresql-42.2.2.jar
-ADD MantenimientoWebData-1.0-SNAPSHOT.war  ./payara-micro/deployments/MantenimientoWebData-1.0-SNAPSHOT.war
-ENTRYPOINT [java, -jar, payara-micro.jar, --addJars, postgresql-42.2.2.jar, postbootcommandfile, resources.txt, --deploy,MantenimientoWebData-1.0-SN$
+FROM payara/micro:5-SNAPSHOT
+ADD postgresql-42.2.2.jar $PAYARA_PATH/
+ADD asadmin.txt $PAYARA_PATH/
+ADD MantenimientoWebData-1.0-SNAPSHOT.war  $PAYARA_PATH/
+ENTRYPOINT ["java", "-jar", "payara-micro.jar", "--addJars", "postgresql-42.2.2.jar", "--postbootcommandfile", "asadmin.txt", "--deploy","MantenimientoWebData-1.0-SNAPSHOT.war"]
 
+#MantenimientoWebData-1.0-SNAPSHOT.war
