@@ -19,7 +19,7 @@ import sv.edu.uesocc.ingenieria.tpi135_2018.mantenimiento.entidades.Marca;
 @Stateless
 public class MarcaFacade extends AbstractFacade<Marca> implements MarcaFacadeLocal {
 
-    @PersistenceContext(unitName = "com.mycompany_MantenimientoWebData_war_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento1.0-SNAPSHOTPU")
     private EntityManager em;
 
     @Override
